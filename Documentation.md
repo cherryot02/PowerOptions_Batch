@@ -18,8 +18,8 @@ D. Get the proper syntax for the command and then apply the changes for the foll
 >Before adjusting any options, you have to select which power schemes first. <br>
 >Else, it will overwrite the adjusted to the default options for that particular scheme. <br>
 
-1. For the purpose of learning, I want to switch to other option from balanced to recommended. [skip](https://github.com/cherryot02/PowerOptions_Batch/blob/main/Documentation.md#plan)
-2. When I press the power button: On battery - shut down, Plugged in - shutdown [skip](https://github.com/cherryot02/PowerOptions_Batch/blob/main/Documentation.md#plan)
+1. For the purpose of learning, I want to switch to other option from balanced to recommended. [skip](https://github.com/cherryot02/PowerOptions_Batch/blob/main/Documentation.md#switching-power-schemes)
+2. When I press the power button: On battery - shut down, Plugged in - shutdown [skip](https://github.com/cherryot02/PowerOptions_Batch/edit/main/Documentation.md#pressing-the-power-buttons)
 3. When I close the lid: On battery - Do nothing, Plugged in - Do nothing
 4. Turn off display: On battery - 30 minutes, plugged in - 1 hour
 5. Sleep after: On battery - Never, Plugged in - Never <br>
