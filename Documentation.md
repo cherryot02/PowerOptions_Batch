@@ -33,3 +33,7 @@ D. Get the proper syntax for the command and then apply the changes for the foll
 
 Typically, some laptops only have one option but some desktops have 2. For now we'll do two options so I can show you the changes and what command option to use.
 
+Basically these right here<br>
+![image](https://github.com/user-attachments/assets/f1c05e07-c4b0-4c6f-ab54-c94a5a7867ab)
+
+
