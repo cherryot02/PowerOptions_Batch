@@ -38,9 +38,18 @@ Basically these right here and the "power schemes."<br>
 <br>
 On the photo, it already selected on the recommended but for the next example, let's pretend it's in balanced then we're switching to the recommended options.<br>
 To do that, we have to open the command prompt first and run `powercfg /help` or `powercfg /?`. Which will show all the possible options for the powercfg command. <br>
-Then, use `powercfg /list` to list all the powerscheme options including their "keys". Whichever has the * means it's the one that's active. <br>
+Then, use `powercfg /list` or `powercfg /l` to list all the powerscheme options including their "keys". Whichever has the * means it's the one that's active. <br>
 Alternatively, we can do `powercfg /getactivescheme` but that will only show the active one and not the others. We need the other keys because we are switching.<br><br>
 
 
 Open a notepad and paste the long hexadecimal number, also are the HKEYS, on the recommended scheme. We will be using that to set a variable later.
+
+# Batch file
+Before doing anytihng else, save the notepad as a batch file. To do that, just File > Save As > filename.bat > Save. I named mine as "power.bat"<br>
+I would save it on the desktop for easy access. After saving the file. Close it out and look for the file you just save. It should have some gears in a window icon.
+![image](https://github.com/user-attachments/assets/0c6f46b4-e189-42b5-90f9-1c4067537cc1)
+
+
+
+
 
