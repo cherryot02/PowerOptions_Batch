@@ -76,7 +76,7 @@ or just run the `powercfg /list` again and note the key.
 setlocal
 
 :: Set the active scheme if not set
-SET GUID= scheme_guid (the hexnumber)
+SET GUID= scheme_guid (the hexnumber or the hkey)
 powercfg /s %GUID%
 
 
@@ -84,6 +84,10 @@ endlocal
 ```
 `SET` here is basically a command for creating varialables. Because I did not want to copy paste a long hex number multiple times down the line, I'll make a variable called GUID and just use `%GUID%` instead of the long number. don't get me wrong, you can! but I just prefer this way for cleaner look. This is just like math variables where you give a value to x so x = GUID and to use variables in a batch, you have to enclose them with %. <br><br>
 
+After that, you can test the file by closing out and double-clicking on it. Look at the Control Panel Power Options window and see if it moved. If so, then let's proceed!
+<br>
+
+##
 
 
 
