@@ -36,7 +36,7 @@ Typically, some laptops only have one option but some desktops have 2. For now w
 Basically these right here and the "power schemes."<br>
 ![image](https://github.com/user-attachments/assets/f1c05e07-c4b0-4c6f-ab54-c94a5a7867ab)
 <br>
-On the photo, it already selected on the recommended but for the next example, let's pretend it's in balaced then we're switching to the recommended options.<br>
+On the photo, it already selected on the recommended but for the next example, let's pretend it's in balanced then we're switching to the recommended options.<br>
 To do that, we have to open the command prompt first and run `powercfg /help` or `powercfg /?`. Which will show all the possible options for the powercfg command. <br>
 Then, use `powercfg /list` to list all the powerscheme options including their "keys". Whichever has the * means it's the one that's active. <br>
 Alternatively, we can do `powercfg /getactivescheme` but that will only show the active one and not the others. We need the other keys because we are switching.<br>
