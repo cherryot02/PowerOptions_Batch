@@ -46,8 +46,11 @@ Open a notepad and paste the long hexadecimal number, also are the HKEYS, on the
 
 # Batch file
 Before doing anytihng else, save the notepad as a batch file. To do that, just File > Save As > filename.bat > Save. I named mine as "power.bat"<br>
-I would save it on the desktop for easy access. After saving the file. Close it out and look for the file you just save. It should have some gears in a window icon.
-![image](https://github.com/user-attachments/assets/0c6f46b4-e189-42b5-90f9-1c4067537cc1)
+I would save it on the desktop for easy access. After saving the file. Close it out and look for the file you just save. It should have some gears in a window icon. 
+![image](https://github.com/user-attachments/assets/0c6f46b4-e189-42b5-90f9-1c4067537cc1)<br><br>
+
+To edit the file, do not double -click on it yet because that will run the batch file. It won't really do anything since we only halve the key in there --anyways-- right-click on the file and select Edit in Notepad.
+
 
 
 
