@@ -106,10 +106,48 @@ So let's break it down:
 So where did I find this? Open the commandline and and run `powercfg /q` and it will display all the the options and settings, including the GUID, alias , and what value to use. <br>
 I did find the command prompt does not display the action alias for powerbutton actions and lid close action, so I searched for Documentations and found them all here: [Power button action | Microsoft Learn](https://learn.microsoft.com/en-us/windows-hardware/customize/power-settings/power-button-and-lid-settings-power-button-action)
 
+Final file. Will edit the documentation and explanation when I get time.
+
+```
+@echo off
+setlocal
+
+:: Set the active scheme if not set
+SET GUID= scheme_guid (the hexnumber or the GUID)
+
+powercfg /s %GUID% 
+
+
+:: Choose what the power buttons do - shutdown (3)
+
+powercfg /setacvalueindex %GUID% SUB_BUTTONS PBUTTONACTION 003
+powercfg /setdcvalueindex %GUID% SUB_BUTTONS PBUTTONACTION 003
 
 
 
+:: Choose what closing the lid does - do nothing (0)
 
+powercfg /setacvalueindex %GUID% SUB_BUTTONS LIDACTION 0
+powercfg /setdcvalueindex %GUID% SUB_BUTTONS LIDACTION 0
+
+
+
+:: Turn off display after AFTER 1hr (3600s) plugged in 
+
+powercfg /setacvalueindex %GUID% SUB_VIDEO VIDEOIDLE 3600
+powercfg /setdcvalueindex %GUID% SUB_VIDEO VIDEOIDLE 180
+
+
+
+:: Change when the computer sleeps - sleep after nver on batt (0), never on plugged (0)
+
+powercfg /setacvalueindex %GUID% SUB_SLEEP STANDBYIDLE 0
+powercfg /setdcvalueindex %GUID% SUB_SLEEP STANDBYIDLE 0
+
+powercfg /s %GUID%
+
+endlocal
+```
 
 
 
