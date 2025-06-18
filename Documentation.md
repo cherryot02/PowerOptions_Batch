@@ -67,7 +67,7 @@ To explain a little bit more. `@echo off` is used to tell the computer that this
 setlocal and endlocal are also commancds acts more like a nest for the commands that we will be running, in this case `powercfg`.<br>
 I am aware that syou don't always have to do this but we were taught in my courses that this is a safe way to do so it creates an local environment in the PC when you run the file, in cases where the file is disabled or what, it can go back to the state when we didn't run it. <br>
 
-## Apply the plan
+## Switching Power Schemes
 We will now start with switching the power schemes from balanced to recommended. Remember that you already pasted the key earlier so just replace the text after the "=" below. <br>
 or just run the `powercfg /list` again and note the key.
 
@@ -76,18 +76,37 @@ or just run the `powercfg /list` again and note the key.
 setlocal
 
 :: Set the active scheme if not set
-SET GUID= scheme_guid (the hexnumber or the hkey)
+SET GUID= scheme_guid (the hexnumber or the GUID)
 powercfg /s %GUID%
 
 
 endlocal
 ```
-`SET` here is basically a command for creating varialables. Because I did not want to copy paste a long hex number multiple times down the line, I'll make a variable called GUID and just use `%GUID%` instead of the long number. don't get me wrong, you can! but I just prefer this way for cleaner look. This is just like math variables where you give a value to x so x = GUID and to use variables in a batch, you have to enclose them with %. <br><br>
+`SET` here is basically a command for creating variables. Because I did not want to copy/paste a long hex number multiple times down the line, I'll make a variable called GUID and just use `%GUID%` instead of the long number. Don't get me wrong, you can! but I just prefer this way for a cleaner look. This is just like math variables where you give a value to x so x = GUID and to use variables in a batch, you have to enclose them with %. like %x% <br><br>
 
 After that, you can test the file by closing out and double-clicking on it. Look at the Control Panel Power Options window and see if it moved. If so, then let's proceed!
 <br>
 
-##
+## Pressing the Power Buttons
+Depending on what you want, you can set this to sleep, hibernate or shutdown. I want it to shut down when I press the power button on both on battery and when plugged in.
+We will add the following commands to do so;
+```
+powercfg /setacvalueindex %GUID% SUB_BUTTONS PBUTTONACTION 003
+powercfg /setdcvalueindex %GUID% SUB_BUTTONS PBUTTONACTION 003
+```
+So let's break it down:
+1. powercfg the main command
+2. /setacvalueindex - basically the "plugged in" part.
+3. /setdcvalueindex -  the "on battery"
+4. %GUID% - the power scheme as a variable
+5. SUB_BUTTONS - GUID_Alias for the the dropdown menu, we could have used the hex but using the alias can also work.
+6. PBUTTONACTIONS - GUID_Alias for which power setting, this one is for the power button.
+7. 003 - the value for setting it on shutdown.
+
+So where did I find this? Open the commandline and and run `powercfg /q` and it will display all the the options and settings, including the GUID, alias , and what value to use. <br>
+I did find the command prompt does not display the action alias for powerbutton actions and lid close action, so I searched for Documentations and found them all here: [Power button action | Microsoft Learn](https://learn.microsoft.com/en-us/windows-hardware/customize/power-settings/power-button-and-lid-settings-power-button-action)
+
+
 
 
 
