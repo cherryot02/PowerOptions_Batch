@@ -53,7 +53,7 @@ To edit the file, do not double -click on it yet because that will run the batch
 Now we're are back in and time to the actual file.
 
 ## Syntax
-start the file with the following 
+start the file with the following:
 ```
 @echo off
 startlocal
@@ -62,7 +62,24 @@ startlocal
 :: we will be putting the commands in this nest.
 
 endlocal
+```
+To explain a little bit more. `@echo off` is used to tell the computer that this is a batch file and to not repeat or display the the following texts/lines after that.<br> <br>
+setlocal and endlocal are also commancds acts more like a nest for the commands that we will be running, in this case `powercfg`.<br>
+I am aware that syou don't always have to do this but we were taught in my courses that this is a safe way to do so it creates an local environment in the PC when you run the file, in cases where the file is disabled or what, it can go back to the state when we didn't run it. <br>
 
+## Apply the plan
+We will now start with switching the 
+
+```
+@echo off
+startlocal
+
+:: Set the active scheme if not set
+SET GUID= scheme_guid (the hexnumber)
+powercfg /s %GUID%
+
+
+endlocal
 ```
 
 
