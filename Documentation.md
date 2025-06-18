@@ -68,7 +68,8 @@ setlocal and endlocal are also commancds acts more like a nest for the commands 
 I am aware that syou don't always have to do this but we were taught in my courses that this is a safe way to do so it creates an local environment in the PC when you run the file, in cases where the file is disabled or what, it can go back to the state when we didn't run it. <br>
 
 ## Apply the plan
-We will now start with switching the 
+We will now start with switching the power schemes from balanced to recommended. Remember that you already pasted the key earlier so just replace the text after the "=" below. <br>
+or just run the `powercfg /list` again and note the key.
 
 ```
 @echo off
@@ -81,6 +82,8 @@ powercfg /s %GUID%
 
 endlocal
 ```
+`SET` here is basically a command for creating varialables. Because I did not want to copy paste a long hex number multiple times down the line, I'll make a variable called GUID and just use `%GUID%` instead of the long number. don't get me wrong, you can! but I just prefer this way for cleaner look. This is just like math variables where you give a value to x so x = GUID and to use variables in a batch, you have to enclose them with %. <br><br>
+
 
 
 
