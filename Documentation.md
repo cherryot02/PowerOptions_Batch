@@ -50,6 +50,21 @@ I would save it on the desktop for easy access. After saving the file. Close it 
 
 We are not done yet, we just made the file, we still have a lot to do. <br>
 To edit the file, do not double -click on it yet because that will run the batch file. It won't really do anything since we only halve the key in there --anyways-- right-click on the file and select Edit in Notepad. <br>
+Now we're are back in and time to the actual file.
+
+## Syntax
+start the file with the following 
+```
+@echo off
+startlocal
+
+:: comments after two colons
+:: we will be putting the commands in this nest.
+
+endlocal
+
+```
+
 
 
 
