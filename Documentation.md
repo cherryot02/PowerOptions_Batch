@@ -4,6 +4,8 @@ The company I worked at had me deploy multiple computers and I had to manually a
 I am also aware that there's an executable file called NoSleep somewhere in the internet but just for learning purposes, I made a batch file instead and see if it works. (It does).
 
 ## Plan
+We will be using `powercfg` , basically short for Power Config (confirguration)
+
 Depending on the PC, PC brand and whatever your organization has, you might have 2 or more options for power schemes. <br>
 In my case there's two, one for balance and one for recommended.<br>
 
@@ -20,11 +22,14 @@ D. Get the proper syntax for the command and then apply the changes for the foll
 2. When I press the power button: On battery - shut down, Plugged in - shutdown
 3. When I close the lid: On battery - Do nothing, Plugged in - Do nothing
 4. Turn off display: On battery - 30 minutes, plugged in - 1 hour
-5. Sleep after: On battery - Never, Plugged in - Never
-
- <br> <br>
+5. Sleep after: On battery - Never, Plugged in - Never <br> 
 
 >[!NOTE]
 >Microsoft has a whole documentation for this, and asking AI might complicate the syntax, <br>
 >so I would suggest going over the command line `powercfg /help` first and it will print out all the possible command line options. <br>
 >then go here [Powercfg command-line options | Microsoft Learn](https://learn.microsoft.com/en-us/windows-hardware/design/device-experiences/powercfg-command-line-options) for more information.
+
+# Starting with the Power Schemes
+
+Typically, some laptops only have one option but some desktops have 2. For now we'll do two options so I can show you the changes and what command option to use.
+
