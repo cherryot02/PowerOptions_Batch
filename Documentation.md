@@ -56,7 +56,7 @@ Now we're are back in and time to the actual file.
 start the file with the following:
 ```
 @echo off
-startlocal
+setlocal
 
 :: comments after two colons
 :: we will be putting the commands in this nest.
@@ -73,7 +73,7 @@ or just run the `powercfg /list` again and note the key.
 
 ```
 @echo off
-startlocal
+setlocal
 
 :: Set the active scheme if not set
 SET GUID= scheme_guid (the hexnumber)
