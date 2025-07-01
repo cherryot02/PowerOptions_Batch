@@ -33,7 +33,7 @@ D. Get the proper syntax for the command and then apply the changes for the foll
 
 Typically, some computers only have one option but some have 2. For now we'll do two options so I can show you the changes and what command option to use.
 
-Basically these right here and the "power schemes."<br>
+Basically these right here are the "power schemes."<br>
 ![image](https://github.com/user-attachments/assets/f1c05e07-c4b0-4c6f-ab54-c94a5a7867ab)
 <br>
 On the photo, it already selected on the recommended but for the next example, let's pretend it's in balanced then we're switching to the recommended options.<br>
