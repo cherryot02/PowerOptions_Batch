@@ -21,8 +21,8 @@ D. Get the proper syntax for the command and then apply the changes for the foll
 1. For the purpose of learning, I want to switch to other option from balanced to recommended. [skip](https://github.com/cherryot02/PowerOptions_Batch/blob/main/Documentation.md#switching-power-schemes)
 2. When I press the power button: On battery - shut down, Plugged in - shutdown [skip](https://github.com/cherryot02/PowerOptions_Batch/blob/main/Documentation.md#pressing-the-power-buttons)
 3. When I close the lid: On battery - Do nothing, Plugged in - Do nothing [skip](https://github.com/cherryot02/PowerOptions_Batch/blob/main/Documentation.md#when-I-close-the-lid)
-4. Turn off display: On battery - 30 minutes, plugged in - 1 hour
-5. Sleep after: On battery - Never, Plugged in - Never <br>
+4. Turn off display: On battery - 30 minutes, plugged in - 1 hour [skip](https://github.com/cherryot02/PowerOptions_Batch/blob/main/Documentation.md#turn-off-the-display)
+5. Sleep after: On battery - Never, Plugged in - Never <br> [skip](https://github.com/cherryot02/PowerOptions_Batch/blob/main/Documentation.md#when-the-computer-sleeps)
 
 >[!NOTE]
 >Microsoft has a whole documentation for this, and asking AI might complicate the syntax, <br>
@@ -112,7 +112,7 @@ Open the commandline and and run `powercfg /q` and it will display all the the o
 So I had a bit of trouble here because running the command `powercfg /q` does not display the specific alias for the actions. <br>
 
 >Unless I have access to the Group Policy or I want to go through the registry keys,
-> sure I'll whatever I need easier but to make everything cohesive for this particular batch file,
+>sure I'll whatever I need easier but to make everything cohesive for this particular batch file,
 >I just searched up on the official Micorosoft documents if they had the actions' alias there.
 
 The command prompt does not display the action alias for powerbutton actions and lid close action, so I searched for Documentations and found them all here: [Power button action | Microsoft Learn](https://learn.microsoft.com/en-us/windows-hardware/customize/power-settings/power-button-and-lid-settings-power-button-action) <br>
@@ -139,10 +139,50 @@ So why do nothing?<br>
 Mainly because most likely the laptop is connected to an external monitor and other external accessories <br>
 so you won't need the laptop's actual monitor/keyboard/touchpad so closing it without having it to go to sleep/shutdown whatever makes things easier. 
 
+## Turn off the display after
+Next is when choosing how long before the display timesout, goes black or go back to the lockscreen. <br>
+You can set this up however long you wantbut just make sure the values are set in "seconds"
+
+In my case, when plugged in, I want it to stay up for an hour and on battery, just 3 minutes (again, it's up to you how long you want this).
+
+```
+:: Turn off display after AFTER 1hr (3600s) plugged in 
+
+powercfg /setacvalueindex %GUID% SUB_VIDEO VIDEOIDLE 3600
+powercfg /setdcvalueindex %GUID% SUB_VIDEO VIDEOIDLE 180
+```
+So let's break it down:
+1. powercfg the main command
+2. /setacvalueindex - basically the "plugged in" part.
+3. /setdcvalueindex -  the "on battery"
+4. %GUID% - the power scheme as a variable
+5. SUB_VIDEO - GUID_Alias for the the dropdown menu for the display and it's video-related.
+6. VIDEOIDLE - GUID_Alias for which power setting, this one is for how long it turns the display off when it's not being used, hence being idle.
+7. 3600 - one hour is 3600s.
+8. 180 - for 3 minutes.
+
+## When the computer sleeps
+
+So in my case, I don't want my computer ever go to sleep so just set these to never. That's it. <br>
+if you want to change the values, just look what to put in  
+
+```
+:: Change when the computer sleeps - sleep after nver on batt (0), never on plugged (0)
+
+powercfg /setacvalueindex %GUID% SUB_SLEEP STANDBYIDLE 0
+powercfg /setdcvalueindex %GUID% SUB_SLEEP STANDBYIDLE 0
+```
+So let's break it down:
+1. powercfg the main command
+2. /setacvalueindex - basically the "plugged in" part.
+3. /setdcvalueindex -  the "on battery"
+4. %GUID% - the power scheme as a variable
+5. SUB_SLEEP - GUID_Alias for the the dropdown menu for the sleep setting.
+6. STANDBYIDLE - GUID_Alias for which power setting, this one is for how long before it goes to sleep.
+7. 0 - for never.
 
 
-
-Final file. Will edit the documentation and explanation when I get time.
+Final file. 
 
 ```
 @echo off
