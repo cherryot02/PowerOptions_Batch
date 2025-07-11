@@ -20,7 +20,7 @@ D. Get the proper syntax for the command and then apply the changes for the foll
 
 1. For the purpose of learning, I want to switch to other option from balanced to recommended. [skip](https://github.com/cherryot02/PowerOptions_Batch/blob/main/Documentation.md#switching-power-schemes)
 2. When I press the power button: On battery - shut down, Plugged in - shutdown [skip](https://github.com/cherryot02/PowerOptions_Batch/blob/main/Documentation.md#pressing-the-power-buttons)
-3. When I close the lid: On battery - Do nothing, Plugged in - Do nothing
+3. When I close the lid: On battery - Do nothing, Plugged in - Do nothing [skip](https://github.com/cherryot02/PowerOptions_Batch/blob/main/Documentation.md#when-I-close-the-lid)
 4. Turn off display: On battery - 30 minutes, plugged in - 1 hour
 5. Sleep after: On battery - Never, Plugged in - Never <br>
 
@@ -103,8 +103,44 @@ So let's break it down:
 6. PBUTTONACTIONS - GUID_Alias for which power setting, this one is for the power button.
 7. 003 - the value for setting it on shutdown.
 
-So where did I find this? Open the commandline and and run `powercfg /q` and it will display all the the options and settings, including the GUID, alias , and what value to use. <br>
-I did find the command prompt does not display the action alias for powerbutton actions and lid close action, so I searched for Documentations and found them all here: [Power button action | Microsoft Learn](https://learn.microsoft.com/en-us/windows-hardware/customize/power-settings/power-button-and-lid-settings-power-button-action)
+So where did I find this? <br>
+
+Open the commandline and and run `powercfg /q` and it will display all the the options and settings, including the GUID, alias , and what value to use.
+
+
+## When I close the lid
+So I had a bit of trouble here because running the command `powercfg /q` does not display the specific alias for the actions. <br>
+
+>Unless I have access to the Group Policy or I want to go through the registry keys,
+> sure I'll whatever I need easier but to make everything cohesive for this particular batch file,
+>I just searched up on the official Micorosoft documents if they had the actions' alias there.
+
+The command prompt does not display the action alias for powerbutton actions and lid close action, so I searched for Documentations and found them all here: [Power button action | Microsoft Learn](https://learn.microsoft.com/en-us/windows-hardware/customize/power-settings/power-button-and-lid-settings-power-button-action) <br>
+
+So add the following commands under the previous one.
+
+```
+:: Choose what closing the lid does - do nothing (0)
+
+powercfg /setacvalueindex %GUID% SUB_BUTTONS LIDACTION 0
+powercfg /setdcvalueindex %GUID% SUB_BUTTONS LIDACTION 0
+```
+
+So let's break it down:
+1. powercfg the main command
+2. /setacvalueindex - basically the "plugged in" part.
+3. /setdcvalueindex -  the "on battery"
+4. %GUID% - the power scheme as a variable
+5. SUB_BUTTONS - GUID_Alias for the the dropdown menu, we could have used the hex but using the alias can also work.
+6. LIDACTION - GUID_Alias for which power setting, this one is for the action of closing the lid.
+7. 0 - the value for setting it to DO NOTHING.
+
+So why do nothing?<br>
+Mainly because most likely the laptop is connected to an external monitor and other external accessories <br>
+so you won't need the laptop's actual monitor/keyboard/touchpad so closing it without having it to go to sleep/shutdown whatever makes things easier. 
+
+
+
 
 Final file. Will edit the documentation and explanation when I get time.
 
@@ -116,7 +152,6 @@ setlocal
 SET GUID= scheme_guid (the hexnumber or the GUID)
 
 powercfg /s %GUID% 
-
 
 :: Choose what the power buttons do - shutdown (3)
 
