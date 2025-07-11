@@ -225,6 +225,13 @@ powercfg /s %GUID%
 endlocal
 ```
 
+The repeated `powercfg /s %GUID%` is to just make sure it is running on the specific powerscheme. <br>
+
+# END
+This marks the end of this documentation. Hopefully it helps somebody out there. There's always an easier and better solution to this (Group Policy, third-party app, etc.) <br>
+but if you happen to have no choice, try this batch script, modify it and test if it'll work. <br>
+
+thank you for reading!
 
 
 
