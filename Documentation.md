@@ -22,7 +22,8 @@ D. Get the proper syntax for the command and then apply the changes for the foll
 2. When I press the power button: On battery - shut down, Plugged in - shutdown [skip](https://github.com/cherryot02/PowerOptions_Batch/blob/main/Documentation.md#pressing-the-power-buttons)
 3. When I close the lid: On battery - Do nothing, Plugged in - Do nothing [skip](https://github.com/cherryot02/PowerOptions_Batch/blob/main/Documentation.md#when-I-close-the-lid)
 4. Turn off display: On battery - 30 minutes, plugged in - 1 hour [skip](https://github.com/cherryot02/PowerOptions_Batch/blob/main/Documentation.md#turn-off-the-display)
-5. Sleep after: On battery - Never, Plugged in - Never <br> [skip](https://github.com/cherryot02/PowerOptions_Batch/blob/main/Documentation.md#when-the-computer-sleeps)
+5. Sleep after: On battery - Never, Plugged in - Never  [skip](https://github.com/cherryot02/PowerOptions_Batch/blob/main/Documentation.md#when-the-computer-sleeps)
+<br>
 
 >[!NOTE]
 >Microsoft has a whole documentation for this, and asking AI might complicate the syntax, <br>
