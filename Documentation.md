@@ -1,6 +1,7 @@
 # Power Options Adjustments 🔋
 The main purpose of this simple project was to streamline the process of adjusting the power options in the Control Panel. <br><br>
 
+At then of this documentation, you can test it by copy/paste-ing the whole script to a notepad and follow the "instructions" or steps on this document to modify it or understand how it works.
 Mounting this file could help once you have done your image and want to include the batch file. <br>
 I am also aware that there's an executable file called NoSleep somewhere in the internet but just for learning purposes, I made a batch file instead and see if it works. (It does, at least for me.).
 
